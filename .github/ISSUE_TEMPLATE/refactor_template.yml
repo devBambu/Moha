@@ -1,0 +1,59 @@
+name: ♻️ 리팩토링
+description: 기능 변경 없이 코드 구조, 가독성, 유지보수성을 개선합니다.
+title: "[REFACTOR] "
+labels: ["refactor"]
+assignees: []
+
+body:
+  # 1. 안내 문구
+  - type: markdown
+    attributes:
+      value: |
+        ### ♻️ 리팩토링
+        기존 기능의 동작은 유지하면서 코드 구조, 가독성, 유지보수성을 개선하기 위한 작업 티켓입니다.
+
+  # 2. 리팩토링 대상
+  - type: textarea
+    id: target
+    attributes:
+      label: 🎯 리팩토링 대상
+      description: 리팩토링이 필요한 코드나 영역을 적어주세요.
+      placeholder: 예시) HomeFeature의 Action 처리 로직 및 Store 구조
+    validations:
+      required: true
+
+  # 3. 문제점
+  - type: textarea
+    id: problem
+    attributes:
+      label: 🔍 문제점
+      description: 현재 코드에서 개선이 필요하다고 판단한 이유를 적어주세요.
+      placeholder: |
+        예시)
+        - 하나의 메서드에서 여러 Action을 처리하고 있어 책임이 불분명합니다.
+        - 동일한 로직이 여러 곳에서 중복되고 있습니다.
+    validations:
+      required: true
+
+  # 4. 개선 방향
+  - type: textarea
+    id: solution
+    attributes:
+      label: 💡 개선 방향
+      description: 어떤 방향으로 코드를 개선할지 적어주세요.
+      placeholder: |
+        예시)
+        - Action별 처리 로직을 별도 메서드로 분리합니다.
+        - 공통 로직을 별도의 타입으로 분리합니다.
+    validations:
+      required: true
+
+  # 5. 참고 사항
+  - type: textarea
+    id: notes
+    attributes:
+      label: 📎 참고 사항
+      description: 리팩토링 시 참고해야 할 내용이나 관련 이슈가 있다면 적어주세요.
+      placeholder: 관련 Issue, PR 또는 참고할 내용을 작성해주세요.
+    validations:
+      required: false

@@ -34,12 +34,11 @@ struct MohaView: View {
     }
 }
 
-extension MohaView {
-    enum TabItem {
-        case home
-        case report
-        case settings
-    }
+//MARK: Tab Item
+enum TabItem {
+    case home
+    case report
+    case settings
 }
 
 //MARK: - MohaView Preview

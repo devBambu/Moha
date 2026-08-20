@@ -14,7 +14,7 @@ protocol NavigationRouter: AnyObject {
 }
 
 extension NavigationRouter {
-    func push(to route: any Route) {
+    func push(to route: Destination) {
         path.append(route)
     }
     
@@ -32,7 +32,7 @@ extension NavigationRouter {
         path.removeLast(count)
     }
     
-    func replace(with route: any Route) {
+    func replace(with route: Destination) {
         path = NavigationPath()
         path.append(route)
     }

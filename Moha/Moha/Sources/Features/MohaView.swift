@@ -30,6 +30,7 @@ struct MohaView: View {
                     Label("Settings", systemImage: "person")
                 }
         }
+        .environment(router)
     }
 }
 

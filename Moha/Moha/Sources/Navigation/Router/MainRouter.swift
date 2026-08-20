@@ -8,6 +8,7 @@
 import SwiftUI
 import Combine
 
+@Observable
 final class MainRouter: ObservableObject {
     var selectedTab = MohaView.TabItem.home
     

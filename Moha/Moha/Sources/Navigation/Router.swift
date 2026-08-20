@@ -37,3 +37,24 @@ extension Router {
         path.append(route)
     }
 }
+
+@Observable
+final class HomeRouter: Router {
+    typealias Destination = HomeRoute
+    
+    var path = NavigationPath()
+}
+
+@Observable
+final class ReportRouter: Router {
+    typealias Destination = ReportRoute
+    
+    var path = NavigationPath()
+}
+
+@Observable
+final class SettingsRouter: Router {
+    typealias Destination = SettingsRoute
+    
+    var path = NavigationPath()
+}

@@ -26,9 +26,9 @@ struct MohaView: View {
             
             Text("My Page")
                 .tabItem {
-                    Label("My Page", systemImage: "person")
+                    Label("Settings", systemImage: "person")
                 }
-                .tag(TabItem.profile)
+                .tag(TabItem.settings)
         }
     }
 }
@@ -37,7 +37,7 @@ extension MohaView {
     enum TabItem {
         case home
         case report
-        case profile
+        case settings
     }
 }
 

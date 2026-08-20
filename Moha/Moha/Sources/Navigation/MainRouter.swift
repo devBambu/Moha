@@ -13,7 +13,7 @@ final class MainRouter: ObservableObject {
     
     let homeRouter = HomeRouter()
     let reportRouter = ReportRouter()
-    let myPageRouter = myPageRouter()
+    let settingsRouter = SettingsRouter()
     
     
 }

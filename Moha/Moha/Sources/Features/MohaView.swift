@@ -8,10 +8,10 @@
 import SwiftUI
 
 struct MohaView: View {
-    @State private var selectedTab: TabItem = .report
+    @State private var router = MainRouter()
     
     var body: some View {
-        TabView(selection: $selectedTab) {
+        TabView(selection: $router.selectedTab) {
             Text("Home")
                 .tabItem {
                     Label("Home", systemImage: "house")

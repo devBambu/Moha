@@ -10,7 +10,7 @@ import Combine
 
 @Observable
 final class MainRouter: ObservableObject {
-    var selectedTab = MohaView.TabItem.home
+    var selectedTab = TabItem.home
     
     let homeRouter = HomeRouter()
     let reportRouter = ReportRouter()

@@ -23,6 +23,7 @@ struct HomeNavigationStack: View {
     private func destinationView(for route: HomeRoute) -> some View {
         switch route {
         case .createTodo:
+            Text("Create")
         }
     }
 }

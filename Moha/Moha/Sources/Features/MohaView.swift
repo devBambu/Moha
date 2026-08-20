@@ -12,23 +12,23 @@ struct MohaView: View {
     
     var body: some View {
         TabView(selection: $router.selectedTab) {
-            Text("Home")
+            HomeNavigationStack(router: router.homeRouter)
+                .tag(TabItem.home)
                 .tabItem {
                     Label("Home", systemImage: "house")
                 }
-                .tag(TabItem.home)
             
-            Text("Report")
+            ReportNavigationStack(router: router.reportRouter)
+                .tag(TabItem.report)
                 .tabItem {
                     Label("Report", systemImage: "chart.xyaxis.line")
                 }
-                .tag(TabItem.report)
             
-            Text("My Page")
+            SettingsNavigationStack(router: router.settingsRouter)
+                .tag(TabItem.settings)
                 .tabItem {
                     Label("Settings", systemImage: "person")
                 }
-                .tag(TabItem.settings)
         }
     }
 }

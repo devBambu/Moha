@@ -23,6 +23,7 @@ struct SettingsNavigationStack: View {
     private func destinationView(for route: SettingsRoute) -> some View {
         switch route {
         case .createTodo:
+            Text("Create")
         }
     }
 }

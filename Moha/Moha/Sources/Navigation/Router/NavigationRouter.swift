@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-protocol Router: AnyObject {
+protocol NavigationRouter: AnyObject {
     associatedtype Destination: Route
     
     var path: NavigationPath { get set }
 }
 
-extension Router {
+extension NavigationRouter {
     func push(to route: any Route) {
         path.append(route)
     }
@@ -39,21 +39,21 @@ extension Router {
 }
 
 @Observable
-final class HomeRouter: Router {
+final class HomeRouter: NavigationRouter {
     typealias Destination = HomeRoute
     
     var path = NavigationPath()
 }
 
 @Observable
-final class ReportRouter: Router {
+final class ReportRouter: NavigationRouter {
     typealias Destination = ReportRoute
     
     var path = NavigationPath()
 }
 
 @Observable
-final class SettingsRouter: Router {
+final class SettingsRouter: NavigationRouter {
     typealias Destination = SettingsRoute
     
     var path = NavigationPath()

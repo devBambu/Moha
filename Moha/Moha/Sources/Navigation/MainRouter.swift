@@ -9,7 +9,11 @@ import SwiftUI
 import Combine
 
 final class MainRouter: ObservableObject {
-    @Published var path = NavigationPath()
+    var selectedTab = MohaView.TabItem.home
+    
+    let homeRouter = HomeRouter()
+    let reportRouter = ReportRouter()
+    let myPageRouter = myPageRouter()
     
     func push(to route: any Route) {
         path.append(route)

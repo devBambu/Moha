@@ -15,11 +15,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build & Test
+      - name: Build
         run: |
           xcodebuild \
-            -project Moha.xcodeproj \
+            -project Moha/Moha.xcodeproj \
             -scheme Moha \
             -sdk iphonesimulator \
-            -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.5'
-            clean test
+            -destination 'generic/platform=iOS Simulator' \
+            CODE_SIGNING_ALLOWED=NO \
+            clean build

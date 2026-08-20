@@ -25,7 +25,7 @@ struct MohaApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MohaView()
         }
         .modelContainer(sharedModelContainer)
     }

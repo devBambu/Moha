@@ -7,10 +7,4 @@
 
 enum ReportRoute: Route {
     case createTodo
-    
-    var id: String {
-        switch self {
-        case .createTodo: "createTodo"
-        }
-    }
 }

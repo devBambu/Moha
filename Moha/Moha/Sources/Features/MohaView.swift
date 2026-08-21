@@ -12,7 +12,7 @@ struct MohaView: View {
     
     var body: some View {
         TabView(selection: $router.selectedTab) {
-            PlanNavigationStack(router: router.homeRouter)
+            PlanNavigationStack(router: router.planRouter)
                 .tag(TabItem.plan)
                 .tabItem {
                     Label(TabItem.plan.title, systemImage: "house")

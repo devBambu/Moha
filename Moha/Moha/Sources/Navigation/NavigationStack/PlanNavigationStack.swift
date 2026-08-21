@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct PlanNavigationStack: View {
-    @Bindable var router: HomeRouter
+    @Bindable var router: PlanRouter
     
     var body: some View {
         NavigationStack(path: $router.path) {

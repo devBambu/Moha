@@ -12,10 +12,10 @@ struct MohaView: View {
     
     var body: some View {
         TabView(selection: $router.selectedTab) {
-            HomeNavigationStack(router: router.homeRouter)
-                .tag(TabItem.home)
+            PlanNavigationStack(router: router.homeRouter)
+                .tag(TabItem.plan)
                 .tabItem {
-                    Label(TabItem.home.title, systemImage: "house")
+                    Label(TabItem.plan.title, systemImage: "house")
                 }
             
             ReportNavigationStack(router: router.reportRouter)
@@ -36,13 +36,13 @@ struct MohaView: View {
 
 //MARK: Tab Item
 enum TabItem {
-    case home
+    case plan
     case report
     case settings
     
     var title: LocalizedStringResource {
         switch self {
-        case .home: "TabItem.home.title"
+        case .plan: "TabItem.plan.title"
         case .report: "TabItem.report.title"
         case .settings: "TabItem.settings.title"
         }

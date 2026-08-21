@@ -15,19 +15,19 @@ struct MohaView: View {
             HomeNavigationStack(router: router.homeRouter)
                 .tag(TabItem.home)
                 .tabItem {
-                    Label("Home", systemImage: "house")
+                    Label(TabItem.home.title, systemImage: "house")
                 }
             
             ReportNavigationStack(router: router.reportRouter)
                 .tag(TabItem.report)
                 .tabItem {
-                    Label("Report", systemImage: "chart.xyaxis.line")
+                    Label(TabItem.report.title, systemImage: "chart.xyaxis.line")
                 }
             
             SettingsNavigationStack(router: router.settingsRouter)
                 .tag(TabItem.settings)
                 .tabItem {
-                    Label("Settings", systemImage: "person")
+                    Label(TabItem.settings.title, systemImage: "person")
                 }
         }
         .environment(router)
@@ -39,6 +39,14 @@ enum TabItem {
     case home
     case report
     case settings
+    
+    var title: LocalizedStringResource {
+        switch self {
+        case .home: "TabItem.home.title"
+        case .report: "TabItem.report.title"
+        case .settings: "TabItem.settings.title"
+        }
+    }
 }
 
 //MARK: - MohaView Preview

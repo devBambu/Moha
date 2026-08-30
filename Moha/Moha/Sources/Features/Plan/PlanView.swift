@@ -10,6 +10,11 @@ import SwiftUI
 struct PlanView: View {
     @State var isCalendarPresented: Bool = false
     
+    let weekdays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT",
+                    "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
+    let days = ["19", "20", "21", "22", "23", "24", "25",
+                "26", "27", "28", "29", "30", "31", "1"]
+    
     var body: some View {
         VStack(spacing: 4) {
             HStack {
@@ -47,6 +52,37 @@ struct PlanView: View {
                 Spacer()
             }
         }
+        .padding(.horizontal, 16)
+
+        ScrollView(.horizontal) {
+            LazyHStack(spacing: 12) {
+                ForEach(days.indices, id: \.self) { index in
+                    let isSelected = days[index] == "28"
+                    let isToday = days[index] == "31"
+
+                    VStack(spacing: 2) {
+                        Text(weekdays[index])
+                            .font(.caption)
+                            .fontWeight(.medium)
+                            .foregroundStyle(.secondary)
+
+                        Text(days[index])
+                            .font(.title3)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(isSelected ? .white : .primary)
+                            .frame(width: 40, height: 40)
+                    }
+                    .frame(width: 40)
+                    .background {
+                        if isSelected {
+                            RoundedRectangle(cornerRadius: 12)
+                                .fill(.blue)
+                        }
+                    }
+                }
+            }
+        }
+        .scrollIndicators(.hidden)
         .padding(.horizontal, 16)
     }
 }

@@ -38,6 +38,7 @@ struct PlanView: View {
                 }
                 .foregroundStyle(.primary)
             }
+            .padding(.horizontal, 16)
         }
     }
 }

@@ -17,7 +17,7 @@ struct PlanView: View {
                     isCalendarPresented = true
                 } label: {
                     HStack(spacing: 4) {
-                        Text("selectedMonthYear")
+                        Text("PlanView.yearMonthSelection")
                             .font(.headline)
                             .fontWeight(.medium)
                         

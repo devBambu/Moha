@@ -11,7 +11,7 @@ struct PlanView: View {
     @State var isCalendarPresented: Bool = false
     
     var body: some View {
-        VStack {
+        VStack(spacing: 4) {
             HStack {
                 Button {
                     isCalendarPresented = true
@@ -19,9 +19,10 @@ struct PlanView: View {
                     HStack(spacing: 4) {
                         Text("selectedMonthYear")
                             .font(.headline)
+                            .fontWeight(.medium)
                         
                         Image(systemName: "chevron.down")
-                            .font(.system(size: 12, weight: .semibold))
+                            .font(.headline)
                     }
                     .foregroundStyle(.primary)
                 }
@@ -34,12 +35,19 @@ struct PlanView: View {
                     print("plan setting")
                 } label: {
                     Image(systemName: "gearshape")
-                        
                 }
                 .foregroundStyle(.primary)
             }
-            .padding(.horizontal, 16)
+            
+            HStack {
+                Text("PlanView.Weekday.title")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                
+                Spacer()
+            }
         }
+        .padding(.horizontal, 16)
     }
 }
 

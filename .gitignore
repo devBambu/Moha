@@ -64,11 +64,11 @@ fastlane/test_output
 
 # Configuration Files
 *.xcconfig
-LeafLog/LeafLog/Configuration/GoogleService-Info.plist
 service-account.json
-AGENTS.md
 domain.md
 docs
 
 # Codex
 .codex/
+AGENTS.md
+PRD.md

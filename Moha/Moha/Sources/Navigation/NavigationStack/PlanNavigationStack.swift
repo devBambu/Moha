@@ -12,7 +12,7 @@ struct PlanNavigationStack: View {
     
     var body: some View {
         NavigationStack(path: $router.path) {
-            Text("Plan") //TODO: PlanView로 수정 필요
+            PlanView(isCalendarPresented: false)
                 .navigationDestination(for: PlanRoute.self) { route in
                     destinationView(for: route)
                 }

@@ -25,11 +25,11 @@ struct PlanView: View {
                 } label: {
                     HStack(spacing: 4) {
                         Text("PlanView.yearMonthSelection")
-                            .font(.headline)
+                            .font(.footnote)
                             .fontWeight(.medium)
                         
                         Image(systemName: "chevron.down")
-                            .font(.headline)
+                            .font(.footnote)
                     }
                     .foregroundStyle(.primary)
                 }
@@ -48,7 +48,7 @@ struct PlanView: View {
             
             HStack {
                 Text("PlanView.Weekday.title")
-                    .font(.largeTitle)
+                    .font(.title2)
                     .fontWeight(.bold)
                 
                 Spacer()
@@ -63,13 +63,13 @@ struct PlanView: View {
 
                     VStack(spacing: 2) {
                         Text(weekdays[index])
-                            .font(.caption)
-                            .fontWeight(.medium)
+                            .font(.caption2)
+                            .fontWeight(.regular)
                             .foregroundStyle(.secondary)
 
                         Text(days[index])
-                            .font(.title3)
-                            .fontWeight(.semibold)
+                            .font(.footnote)
+                            .fontWeight(.medium)
                             .foregroundStyle(isSelected ? .white : .primary)
                             .frame(width: 40, height: 40)
                     }

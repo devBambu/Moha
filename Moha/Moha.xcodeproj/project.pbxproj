@@ -6,8 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		A1111111111111111111111B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F98E111B302F052500A00027 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F98E1122302F052600A00027;
+			remoteInfo = Moha;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		F98E1123302F052600A00027 /* Moha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moha.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A11111111111111111111111 /* MohaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MohaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -16,10 +27,22 @@
 			path = Moha;
 			sourceTree = "<group>";
 		};
+		A11111111111111111111112 /* MohaTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = MohaTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		F98E1120302F052600A00027 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A11111111111111111111113 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				F98E1125302F052600A00027 /* Moha */,
+				A11111111111111111111112 /* MohaTests */,
 				F98E1124302F052600A00027 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				F98E1123302F052600A00027 /* Moha.app */,
+				A11111111111111111111111 /* MohaTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +95,29 @@
 			productReference = F98E1123302F052600A00027 /* Moha.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A11111111111111111111114 /* MohaTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A11111111111111111111118 /* Build configuration list for PBXNativeTarget "MohaTests" */;
+			buildPhases = (
+				A11111111111111111111116 /* Sources */,
+				A11111111111111111111113 /* Frameworks */,
+				A11111111111111111111115 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1111111111111111111111C /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A11111111111111111111112 /* MohaTests */,
+			);
+			name = MohaTests;
+			packageProductDependencies = (
+			);
+			productName = MohaTests;
+			productReference = A11111111111111111111111 /* MohaTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -81,6 +129,9 @@
 				LastUpgradeCheck = 2660;
 				TargetAttributes = {
 					F98E1122302F052600A00027 = {
+						CreatedOnToolsVersion = 26.6;
+					};
+					A11111111111111111111114 = {
 						CreatedOnToolsVersion = 26.6;
 					};
 				};
@@ -101,12 +152,20 @@
 			projectRoot = "";
 			targets = (
 				F98E1122302F052600A00027 /* Moha */,
+				A11111111111111111111114 /* MohaTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F98E1121302F052600A00027 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A11111111111111111111115 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -123,9 +182,56 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A11111111111111111111116 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		A1111111111111111111111C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F98E1122302F052600A00027 /* Moha */;
+			targetProxy = A1111111111111111111111B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		A11111111111111111111119 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGNING_ALLOWED = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.bambu.MohaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Moha.app/Moha";
+			};
+			name = Debug;
+		};
+		A1111111111111111111111A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGNING_ALLOWED = NO;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.bambu.MohaTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Moha.app/Moha";
+			};
+			name = Release;
+		};
 		F98E112E302F052800A00027 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -330,6 +436,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A11111111111111111111118 /* Build configuration list for PBXNativeTarget "MohaTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A11111111111111111111119 /* Debug */,
+				A1111111111111111111111A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		F98E111E302F052500A00027 /* Build configuration list for PBXProject "Moha" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

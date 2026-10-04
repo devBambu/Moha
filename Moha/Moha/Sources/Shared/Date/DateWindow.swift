@@ -3,9 +3,9 @@ import Foundation
 enum DateWindow {
     static func weekDates(
         around date: Date,
-        weeksBefore: Int,
-        weeksAfter: Int,
-        calendar: Calendar
+        weeksBefore: Int = 1,
+        weeksAfter: Int = 1,
+        calendar: Calendar = .current
     ) -> [Date] {
         var calendar = calendar
         calendar.firstWeekday = 2

@@ -17,32 +17,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F98E1123302F052600A00027 /* Moha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A11111111111111111111111 /* MohaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MohaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F98E1123302F052600A00027 /* Moha.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moha.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		F98E1125302F052600A00027 /* Moha */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Moha;
-			sourceTree = "<group>";
-		};
 		A11111111111111111111112 /* MohaTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = MohaTests;
 			sourceTree = "<group>";
 		};
+		F98E1125302F052600A00027 /* Moha */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Moha;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		F98E1120302F052600A00027 /* Frameworks */ = {
+		A11111111111111111111113 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A11111111111111111111113 /* Frameworks */ = {
+		F98E1120302F052600A00027 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -73,28 +73,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		F98E1122302F052600A00027 /* Moha */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = F98E1130302F052800A00027 /* Build configuration list for PBXNativeTarget "Moha" */;
-			buildPhases = (
-				F98E111F302F052600A00027 /* Sources */,
-				F98E1120302F052600A00027 /* Frameworks */,
-				F98E1121302F052600A00027 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				F98E1125302F052600A00027 /* Moha */,
-			);
-			name = Moha;
-			packageProductDependencies = (
-			);
-			productName = Moha;
-			productReference = F98E1123302F052600A00027 /* Moha.app */;
-			productType = "com.apple.product-type.application";
-		};
 		A11111111111111111111114 /* MohaTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A11111111111111111111118 /* Build configuration list for PBXNativeTarget "MohaTests" */;
@@ -118,6 +96,28 @@
 			productReference = A11111111111111111111111 /* MohaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		F98E1122302F052600A00027 /* Moha */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F98E1130302F052800A00027 /* Build configuration list for PBXNativeTarget "Moha" */;
+			buildPhases = (
+				F98E111F302F052600A00027 /* Sources */,
+				F98E1120302F052600A00027 /* Frameworks */,
+				F98E1121302F052600A00027 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				F98E1125302F052600A00027 /* Moha */,
+			);
+			name = Moha;
+			packageProductDependencies = (
+			);
+			productName = Moha;
+			productReference = F98E1123302F052600A00027 /* Moha.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -128,10 +128,10 @@
 				LastSwiftUpdateCheck = 2660;
 				LastUpgradeCheck = 2660;
 				TargetAttributes = {
-					F98E1122302F052600A00027 = {
+					A11111111111111111111114 = {
 						CreatedOnToolsVersion = 26.6;
 					};
-					A11111111111111111111114 = {
+					F98E1122302F052600A00027 = {
 						CreatedOnToolsVersion = 26.6;
 					};
 				};
@@ -158,14 +158,14 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		F98E1121302F052600A00027 /* Resources */ = {
+		A11111111111111111111115 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A11111111111111111111115 /* Resources */ = {
+		F98E1121302F052600A00027 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -175,14 +175,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		F98E111F302F052600A00027 /* Sources */ = {
+		A11111111111111111111116 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A11111111111111111111116 /* Sources */ = {
+		F98E111F302F052600A00027 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (

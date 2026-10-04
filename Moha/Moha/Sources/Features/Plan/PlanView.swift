@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct PlanView: View {
+    @Environment(\.locale) private var locale
     @State var isCalendarPresented: Bool = false
+    @State private var store = PlanStore()
     
     let weekdays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT",
                     "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT",
@@ -24,7 +26,7 @@ struct PlanView: View {
                     isCalendarPresented = true
                 } label: {
                     HStack(spacing: 4) {
-                        Text("PlanView.yearMonthSelection")
+                        Text(PlanDateText.yearMonth(for: store.state.selectedDate, locale: locale))
                             .font(.footnote)
                             .fontWeight(.medium)
                         
@@ -47,7 +49,7 @@ struct PlanView: View {
             }
             
             HStack {
-                Text("PlanView.Weekday.title")
+                Text(PlanDateText.selectedDate(for: store.state.selectedDate, locale: locale))
                     .font(.title2)
                     .fontWeight(.bold)
                 

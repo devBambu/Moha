@@ -80,14 +80,14 @@ struct PlanView: View {
                                 .fill(.blue)
                         }
                     }
-                    .containerRelativeFrame(.horizontal, count: 7, span: 1, spacing: 0)
+                    .containerRelativeFrame(.horizontal, count: 7, span: 1, spacing: 0) // 날짜 한 칸의 너비를 스크롤뷰의 1/7로 설정
                 }
             }
-            .scrollTargetLayout()
+            .scrollTargetLayout() // LazyHStack의 각 날짜 칸을 스크롤 정렬 대상으로 등록 - scrollTargetLayout()은 해당 레이아웃의 직접 자식 뷰들을 스크롤 대상으로 취급
         }
         .scrollIndicators(.hidden)
         .defaultScrollAnchor(.center)
-        .scrollTargetBehavior(.viewAligned)
+        .scrollTargetBehavior(.viewAligned) // 손을 떼어 스크롤이 멈출 때, scrollTargetLayout에서 등록한 날짜 칸 경계에 맞춰 멈춤. 기본 정렬은 앞쪽 가장자리를 기준으로 함.
         .padding(.horizontal, 16)
     }
 }

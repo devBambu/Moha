@@ -12,13 +12,6 @@ struct PlanView: View {
     @State var isCalendarPresented: Bool = false
     @State private var store = PlanStore()
     
-    let weekdays = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT",
-                    "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT",
-                    "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"]
-    let days = ["19", "20", "21", "22", "23", "24", "25",
-                "26", "27", "28", "29", "30", "31", "1",
-                "2", "3", "4", "5", "6", "7", "8"]
-    
     var body: some View {
         VStack(spacing: 4) {
             HStack {
@@ -60,27 +53,32 @@ struct PlanView: View {
 
         ScrollView(.horizontal) {
             LazyHStack(spacing: 0) {
-                ForEach(days.indices, id: \.self) { index in
-                    let isSelected = days[index] == "28"
+                ForEach(store.visibleDates, id: \.self) { date in
+                    let isSelected = date == store.state.selectedDate
 
-                    VStack(spacing: 2) {
-                        Text(weekdays[index])
-                            .font(.caption2)
-                            .fontWeight(.regular)
-                            .foregroundStyle(.secondary)
+                    Button {
+                        store.send(.selectDate(date))
+                    } label: {
+                        VStack(spacing: 2) {
+                            Text(PlanDateText.weekday(for: date, locale: locale))
+                                .font(.caption2)
+                                .fontWeight(.regular)
+                                .foregroundStyle(.secondary)
 
-                        Text(days[index])
-                            .font(.footnote)
-                            .fontWeight(.medium)
-                            .foregroundStyle(isSelected ? .white : .primary)
-                            .frame(width: 40, height: 40)
+                            Text(date, format: .dateTime.locale(locale).day())
+                                .font(.footnote)
+                                .fontWeight(.medium)
+                                .foregroundStyle(isSelected ? .white : .primary)
+                                .frame(width: 40, height: 40)
+                        }
                     }
+                    .buttonStyle(.plain)
                     .frame(width: 40)
                     .background {
                         if isSelected {
                             RoundedRectangle(cornerRadius: 12)
                                 .fill(.blue)
-                            }
+                        }
                     }
                     .containerRelativeFrame(.horizontal, count: 7, span: 1, spacing: 0)
                 }

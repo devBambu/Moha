@@ -6,6 +6,7 @@ final class PlanDateTextTests: XCTestCase {
         let date = DateTestSupport.date(year: 2026, month: 7, day: 31, hour: 12)
         let locale = Locale(identifier: "ko_KR")
 
+        XCTAssertEqual(PlanDateText.weekday(for: date, locale: locale), "금")
         XCTAssertEqual(PlanDateText.selectedDate(for: date, locale: locale), "7월 31일 금요일")
         XCTAssertEqual(PlanDateText.yearMonth(for: date, locale: locale), "2026년 7월")
 
@@ -18,6 +19,7 @@ final class PlanDateTextTests: XCTestCase {
         let date = DateTestSupport.date(year: 2026, month: 7, day: 31, hour: 12)
         let locale = Locale(identifier: "en_US")
 
+        XCTAssertEqual(PlanDateText.weekday(for: date, locale: locale), "FRI")
         XCTAssertEqual(PlanDateText.selectedDate(for: date, locale: locale), "Fri, Jul 31")
         XCTAssertEqual(PlanDateText.yearMonth(for: date, locale: locale), "July 2026")
     }

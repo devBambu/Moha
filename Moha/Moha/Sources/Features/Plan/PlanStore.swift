@@ -15,7 +15,7 @@ final class PlanStore {
     init(now: Date = .now, calendar: Calendar = .current) {
         self.calendar = calendar
         let today = calendar.startOfDay(for: now)
-        state = PlanState(selectedDate: today, windowAnchorDate: today)
+        state = PlanState(today: today, selectedDate: today, windowAnchorDate: today)
     }
 
     func send(_ action: PlanAction) {

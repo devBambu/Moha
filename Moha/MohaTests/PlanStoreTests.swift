@@ -10,6 +10,7 @@ final class PlanStoreTests: XCTestCase {
         let store = PlanStore(now: now, calendar: calendar)
 
         XCTAssertEqual(DateTestSupport.dayComponents(store.state.selectedDate, calendar: calendar), [2026, 7, 31])
+        XCTAssertEqual(DateTestSupport.dayComponents(store.state.today, calendar: calendar), [2026, 7, 31])
         XCTAssertEqual(DateTestSupport.dayComponents(store.state.windowAnchorDate, calendar: calendar), [2026, 7, 31])
         XCTAssertEqual(store.visibleDates.count, 21)
         XCTAssertTrue(store.visibleDates.contains { calendar.isDate($0, inSameDayAs: now) })

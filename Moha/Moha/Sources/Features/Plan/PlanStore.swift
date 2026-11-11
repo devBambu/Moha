@@ -22,6 +22,8 @@ final class PlanStore {
         switch action {
         case let .selectDate(date):
             select(date)
+        case .selectToday:
+            select(state.today)
         }
     }
 

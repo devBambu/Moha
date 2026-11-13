@@ -47,6 +47,15 @@ struct PlanView: View {
                     .fontWeight(.bold)
                 
                 Spacer()
+
+                if !store.isSelectedDateToday {
+                    Button("PlanView.today") {
+                        store.send(.selectToday)
+                    }
+                    .font(.footnote)
+                    .fontWeight(.medium)
+                    .foregroundStyle(.blue)
+                }
             }
         }
         .padding(.horizontal, 16)

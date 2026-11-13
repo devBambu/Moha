@@ -68,28 +68,31 @@ struct PlanView: View {
                     Button {
                         store.send(.selectDate(date))
                     } label: {
-                        VStack(spacing: 2) {
+                        VStack(spacing: 4) {
                             Text(PlanDateText.weekday(for: date, locale: locale))
                                 .font(.caption2)
                                 .fontWeight(.regular)
                                 .foregroundStyle(.secondary)
-
+                            
                             Text(date, format: .dateTime.locale(locale).day())
                                 .font(.footnote)
                                 .fontWeight(.medium)
                                 .foregroundStyle(isSelected ? .white : .primary)
-                                .frame(width: 40, height: 40)
+                                .frame(height: 18)
                         }
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 66)
+                        .contentShape(Rectangle()) // 터치 영역 설정 - background의 padding 2포인트까지 터치 영역으로 포함
                     }
                     .buttonStyle(.plain)
-                    .frame(width: 40)
+                    .containerRelativeFrame(.horizontal, count: 7, span: 1, spacing: 0) // 날짜 한 칸의 너비를 스크롤뷰의 1/7로 설정
                     .background {
                         if isSelected {
                             RoundedRectangle(cornerRadius: 12)
                                 .fill(.blue)
+                                .padding(.horizontal, 2)
                         }
                     }
-                    .containerRelativeFrame(.horizontal, count: 7, span: 1, spacing: 0) // 날짜 한 칸의 너비를 스크롤뷰의 1/7로 설정
                 }
             }
             .scrollTargetLayout() // LazyHStack의 각 날짜 칸을 스크롤 정렬 대상으로 등록 - scrollTargetLayout()은 해당 레이아웃의 직접 자식 뷰들을 스크롤 대상으로 취급

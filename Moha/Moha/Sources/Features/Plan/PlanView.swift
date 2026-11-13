@@ -13,61 +13,62 @@ struct PlanView: View {
     @State private var store = PlanStore()
     
     var body: some View {
-        VStack(spacing: 4) {
-            ZStack(alignment: .topLeading) {
-                HStack {
-                    Button {
-                        isCalendarPresented = true
-                    } label: {
-                        HStack(spacing: 4) {
-                            Text(PlanDateText.yearMonth(for: store.state.selectedDate, locale: locale))
-                                .font(.footnote)
-                                .fontWeight(.medium)
+        VStack(spacing: 0) {
+            HStack {
+                Button {
+                    isCalendarPresented = true
+                } label: {
+                    HStack(spacing: 4) {
+                        Text(PlanDateText.yearMonth(for: store.state.selectedDate, locale: locale))
+                            .font(.footnote)
+                            .fontWeight(.medium)
 
-                            Image(systemName: "chevron.down")
-                                .font(.footnote)
-                        }
-                        .foregroundStyle(.primary)
-                        .padding(.horizontal, 8)
-                        .frame(minHeight: 44)
-                        .contentShape(Rectangle())
-                    }
-                    .buttonStyle(.plain)
-
-                    Spacer()
-                }
-
-                HStack {
-                    Text(PlanDateText.selectedDate(for: store.state.selectedDate, locale: locale))
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .allowsHitTesting(false)
-
-                    Spacer()
-
-                    if !store.isSelectedDateToday {
-                        Button("PlanView.today") {
-                            store.send(.selectToday)
-                        }
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
-                        .foregroundStyle(.blue)
-                        .frame(width: 52, height: 44)
-                        .contentShape(Rectangle())
-                    }
-
-                    Button {
-                        //TODO: 계획 표시 설정 동작
-                        print("plan setting")
-                    } label: {
-                        Image(systemName: "gearshape")
+                        Image(systemName: "chevron.down")
+                            .font(.footnote)
                     }
                     .foregroundStyle(.primary)
-                    .frame(height: 44)
+                    .padding(.trailing, 8)
+                    .contentShape(Rectangle())
+                    .background {
+                        // 레이아웃 높이는 레이블 그대로 두고 터치 영역만 44pt로 확장해, 아래 날짜 제목과 간격 없이 겹치게 한다.
+                        Color.clear
+                            .frame(minHeight: 44)
+                            .contentShape(Rectangle())
+                    }
                 }
-                .offset(y: 35)
+                .buttonStyle(.plain)
+
+                Spacer()
             }
-            .frame(height: 79, alignment: .topLeading)
+
+            HStack {
+                Text(PlanDateText.selectedDate(for: store.state.selectedDate, locale: locale))
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .allowsHitTesting(false)
+
+                Spacer()
+
+                if !store.isSelectedDateToday {
+                    Button("PlanView.today") {
+                        store.send(.selectToday)
+                    }
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.blue)
+                    .frame(width: 52, height: 44)
+                    .contentShape(Rectangle())
+                }
+
+                Button {
+                    //TODO: 계획 표시 설정 동작
+                    print("plan setting")
+                } label: {
+                    Image(systemName: "gearshape")
+                }
+                .foregroundStyle(.primary)
+                .frame(height: 44)
+            }
         }
         .padding(.horizontal, 16)
 

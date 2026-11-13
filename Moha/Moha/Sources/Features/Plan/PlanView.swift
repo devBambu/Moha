@@ -31,14 +31,6 @@ struct PlanView: View {
                 .buttonStyle(.plain)
                 
                 Spacer()
-                
-                Button {
-                    //TODO: 계획 표시 설정 동작
-                    print("plan setting")
-                } label: {
-                    Image(systemName: "gearshape")
-                }
-                .foregroundStyle(.primary)
             }
             
             HStack {
@@ -56,6 +48,14 @@ struct PlanView: View {
                     .fontWeight(.medium)
                     .foregroundStyle(.blue)
                 }
+
+                Button {
+                    //TODO: 계획 표시 설정 동작
+                    print("plan setting")
+                } label: {
+                    Image(systemName: "gearshape")
+                }
+                .foregroundStyle(.primary)
             }
         }
         .padding(.horizontal, 16)

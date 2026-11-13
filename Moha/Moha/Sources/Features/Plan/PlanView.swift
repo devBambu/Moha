@@ -58,6 +58,7 @@ struct PlanView: View {
                     Image(systemName: "gearshape")
                 }
                 .foregroundStyle(.primary)
+                .frame(height: 44)
             }
         }
         .padding(.horizontal, 16)
@@ -74,7 +75,7 @@ struct PlanView: View {
                             Text(PlanDateText.weekday(for: date, locale: locale))
                                 .font(.caption2)
                                 .fontWeight(.regular)
-                                .foregroundStyle(.secondary)
+                                .foregroundStyle(isSelected ? .white : .secondary)
                             
                             Text(date, format: .dateTime.locale(locale).day())
                                 .font(.footnote)

@@ -27,6 +27,9 @@ struct PlanView: View {
                             .font(.footnote)
                     }
                     .foregroundStyle(.primary)
+                    .padding(.horizontal, 8)
+                    .frame(minHeight: 44)
+                    .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
                 

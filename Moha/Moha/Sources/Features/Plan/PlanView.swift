@@ -44,9 +44,11 @@ struct PlanView: View {
                     Button("PlanView.today") {
                         store.send(.selectToday)
                     }
-                    .font(.footnote)
-                    .fontWeight(.medium)
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
                     .foregroundStyle(.blue)
+                    .frame(width: 52, height: 44)
+                    .contentShape(Rectangle())
                 }
 
                 Button {

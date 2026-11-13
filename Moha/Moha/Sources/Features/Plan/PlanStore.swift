@@ -12,6 +12,10 @@ final class PlanStore {
         DateWindow.weekDates(around: state.windowAnchorDate, calendar: calendar)
     }
 
+    var isSelectedDateToday: Bool {
+        calendar.isDate(state.selectedDate, inSameDayAs: state.today)
+    }
+
     init(now: Date = .now, calendar: Calendar = .current) {
         self.calendar = calendar
         let today = calendar.startOfDay(for: now)
@@ -24,6 +28,8 @@ final class PlanStore {
             select(date)
         case .selectToday:
             select(state.today)
+        case let .appBecameActive(now):
+            state.today = calendar.startOfDay(for: now)
         }
     }
 }

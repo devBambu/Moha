@@ -54,9 +54,9 @@ struct PlanView: View {
                         store.send(.selectToday)
                     } label: {
                         Text("PlanView.today")
-                            .frame(width: 52)
+                            .frame(minWidth: 44)
                             .contentShape(Rectangle())
-                            // 줄 높이를 늘리지 않도록 44pt 터치 영역은 레이아웃 밖으로 확장한다.
+                            // 줄 높이를 늘리지 않도록 44pt 터치 영역은 레이아웃 밖으로 확장
                             .background {
                                 Color.clear
                                     .frame(minHeight: 44)
@@ -73,7 +73,7 @@ struct PlanView: View {
                     print("plan setting")
                 } label: {
                     Image(systemName: "gearshape")
-                        // 줄 높이를 늘리지 않도록 44pt 터치 영역은 레이아웃 밖으로 확장한다.
+                        // 줄 높이를 늘리지 않도록 44pt 터치 영역은 레이아웃 밖으로 확장
                         .background {
                             Color.clear
                                 .frame(minWidth: 44, minHeight: 44)

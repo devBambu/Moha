@@ -37,7 +37,7 @@ struct PlanView: View {
                     Spacer()
                 }
 
-                HStack(alignment: .top) {
+                HStack {
                     Text(PlanDateText.selectedDate(for: store.state.selectedDate, locale: locale))
                         .font(.title2)
                         .fontWeight(.bold)

@@ -30,7 +30,7 @@ struct PlanView: View {
                     .padding(.trailing, 8)
                     .contentShape(Rectangle())
                     .background {
-                        // 레이아웃 높이는 레이블 그대로 두고 터치 영역만 44pt로 확장해, 아래 날짜 제목과 간격 없이 겹치게 한다.
+                        // 레이아웃 높이는 레이블 그대로 두고 터치 영역만 44pt로 확장해, 아래 날짜 제목과 간격 없이 겹치게 함
                         Color.clear
                             .frame(minHeight: 44)
                             .contentShape(Rectangle())
@@ -50,14 +50,22 @@ struct PlanView: View {
                 Spacer()
 
                 if !store.isSelectedDateToday {
-                    Button("PlanView.today") {
+                    Button {
                         store.send(.selectToday)
+                    } label: {
+                        Text("PlanView.today")
+                            .frame(width: 52)
+                            .contentShape(Rectangle())
+                            // 줄 높이를 늘리지 않도록 44pt 터치 영역은 레이아웃 밖으로 확장한다.
+                            .background {
+                                Color.clear
+                                    .frame(minHeight: 44)
+                                    .contentShape(Rectangle())
+                            }
                     }
                     .font(.subheadline)
                     .fontWeight(.semibold)
                     .foregroundStyle(.blue)
-                    .frame(width: 52, height: 44)
-                    .contentShape(Rectangle())
                 }
 
                 Button {
@@ -65,9 +73,14 @@ struct PlanView: View {
                     print("plan setting")
                 } label: {
                     Image(systemName: "gearshape")
+                        // 줄 높이를 늘리지 않도록 44pt 터치 영역은 레이아웃 밖으로 확장한다.
+                        .background {
+                            Color.clear
+                                .frame(minWidth: 44, minHeight: 44)
+                                .contentShape(Rectangle())
+                        }
                 }
                 .foregroundStyle(.primary)
-                .frame(height: 44)
             }
         }
         .padding(.horizontal, 16)

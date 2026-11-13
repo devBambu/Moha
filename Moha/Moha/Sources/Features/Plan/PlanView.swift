@@ -14,60 +14,61 @@ struct PlanView: View {
     
     var body: some View {
         VStack(spacing: 4) {
-            ZStack(alignment: .topLeading) {
-                HStack {
+            HStack {
+                HStack(spacing: 4) {
+                    Text(PlanDateText.yearMonth(for: store.state.selectedDate, locale: locale))
+                        .font(.footnote)
+                        .fontWeight(.medium)
+                        .accessibilityHidden(true)
+
+                    Image(systemName: "chevron.down")
+                        .font(.footnote)
+                        .accessibilityHidden(true)
+                }
+                .foregroundStyle(.primary)
+                .padding(.horizontal, 8)
+                .overlay(alignment: .topLeading) {
                     Button {
                         isCalendarPresented = true
                     } label: {
-                        HStack(spacing: 4) {
-                            Text(PlanDateText.yearMonth(for: store.state.selectedDate, locale: locale))
-                                .font(.footnote)
-                                .fontWeight(.medium)
-
-                            Image(systemName: "chevron.down")
-                                .font(.footnote)
-                        }
-                        .foregroundStyle(.primary)
-                        .padding(.horizontal, 8)
-                        .frame(minHeight: 44)
-                        .contentShape(Rectangle())
+                        Color.clear
+                            .frame(maxWidth: .infinity)
+                            .frame(height: 44)
+                            .contentShape(Rectangle())
                     }
                     .buttonStyle(.plain)
-
-                    Spacer()
+                    .accessibilityLabel(PlanDateText.yearMonth(for: store.state.selectedDate, locale: locale))
                 }
-
-                HStack {
-                    Text(PlanDateText.selectedDate(for: store.state.selectedDate, locale: locale))
-                        .font(.title2)
-                        .fontWeight(.bold)
-                        .allowsHitTesting(false)
-
-                    Spacer()
-
-                    if !store.isSelectedDateToday {
-                        Button("PlanView.today") {
-                            store.send(.selectToday)
-                        }
-                        .font(.subheadline)
-                        .fontWeight(.semibold)
-                        .foregroundStyle(.blue)
-                        .frame(width: 52, height: 44)
-                        .contentShape(Rectangle())
-                    }
-
-                    Button {
-                        //TODO: 계획 표시 설정 동작
-                        print("plan setting")
-                    } label: {
-                        Image(systemName: "gearshape")
-                    }
-                    .foregroundStyle(.primary)
-                    .frame(height: 44)
-                }
-                .offset(y: 35)
             }
-            .frame(height: 79, alignment: .topLeading)
+
+            HStack(alignment: .top) {
+                Text(PlanDateText.selectedDate(for: store.state.selectedDate, locale: locale))
+                    .font(.title2)
+                    .fontWeight(.bold)
+                    .allowsHitTesting(false)
+
+                Spacer()
+
+                if !store.isSelectedDateToday {
+                    Button("PlanView.today") {
+                        store.send(.selectToday)
+                    }
+                    .font(.subheadline)
+                    .fontWeight(.semibold)
+                    .foregroundStyle(.blue)
+                    .frame(width: 52, height: 44)
+                    .contentShape(Rectangle())
+                }
+
+                Button {
+                    //TODO: 계획 표시 설정 동작
+                    print("plan setting")
+                } label: {
+                    Image(systemName: "gearshape")
+                }
+                .foregroundStyle(.primary)
+                .frame(height: 44)
+            }
         }
         .padding(.horizontal, 16)
 

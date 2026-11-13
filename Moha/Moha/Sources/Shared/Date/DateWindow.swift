@@ -2,7 +2,7 @@ import Foundation
 
 enum DateWindow {
     static func weekDates(
-        around date: Date,
+        around date: Date, // 기준 날짜
         weeksBefore: Int = 1,
         weeksAfter: Int = 1,
         calendar: Calendar = .current

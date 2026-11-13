@@ -26,7 +26,9 @@ final class PlanStore {
             select(state.today)
         }
     }
+}
 
+extension PlanStore {
     private func select(_ date: Date) {
         let selectedDate = calendar.startOfDay(for: date)
         state.selectedDate = selectedDate

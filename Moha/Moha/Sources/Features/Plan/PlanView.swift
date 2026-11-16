@@ -38,6 +38,20 @@ struct PlanView: View {
                     }
                 }
                 .buttonStyle(.plain)
+                .popover(isPresented: $isCalendarPresented) {
+                    PlanCalendarPopover(
+                        selectedDate: store.state.selectedDate,
+                        onSelect: { date in
+                            store.send(.selectDate(date))
+                            isCalendarPresented = false
+                        },
+                        onSelectToday: {
+                            store.send(.selectToday)
+                            isCalendarPresented = false
+                        }
+                    )
+                    .presentationCompactAdaptation(.popover)
+                }
 
                 Spacer()
             }

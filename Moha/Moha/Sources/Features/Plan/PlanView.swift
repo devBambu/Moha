@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PlanView: View {
     @Environment(\.locale) private var locale
+    @Environment(\.scenePhase) private var scenePhase
     @State var isCalendarPresented: Bool = false
     @State private var store = PlanStore()
     
@@ -111,6 +112,8 @@ struct PlanView: View {
                         .contentShape(Rectangle()) // 터치 영역 설정 - background의 padding 2포인트까지 터치 영역으로 포함
                     }
                     .buttonStyle(.plain)
+                    .accessibilityValue(isToday ? Text("PlanView.today") : Text(""))
+                    .accessibilityAddTraits(isSelected ? .isSelected : [])
                     .containerRelativeFrame(.horizontal, count: 7, span: 1, spacing: 0) // 날짜 한 칸의 너비를 스크롤뷰의 1/7로 설정
                     .background {
                         if isSelected {
@@ -131,6 +134,11 @@ struct PlanView: View {
         .defaultScrollAnchor(.center)
         .scrollTargetBehavior(.viewAligned) // 손을 떼어 스크롤이 멈출 때, scrollTargetLayout에서 등록한 날짜 칸 경계에 맞춰 멈춤. 기본 정렬은 앞쪽 가장자리를 기준으로 함.
         .padding(.horizontal, 16)
+        .onChange(of: scenePhase) { _, phase in
+            if phase == .active {
+                store.send(.appBecameActive(now: .now))
+            }
+        }
     }
 }
 

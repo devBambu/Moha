@@ -89,6 +89,7 @@ struct PlanView: View {
             LazyHStack(spacing: 0) {
                 ForEach(store.visibleDates, id: \.self) { date in
                     let isSelected = date == store.state.selectedDate
+                    let isToday = date == store.state.today
 
                     Button {
                         store.send(.selectDate(date))
@@ -115,6 +116,10 @@ struct PlanView: View {
                         if isSelected {
                             RoundedRectangle(cornerRadius: 12)
                                 .fill(.blue)
+                                .padding(.horizontal, 2)
+                        } else if isToday {
+                            RoundedRectangle(cornerRadius: 12)
+                                .strokeBorder(.blue, lineWidth: 1)
                                 .padding(.horizontal, 2)
                         }
                     }

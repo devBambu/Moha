@@ -126,7 +126,7 @@ struct PlanView: View {
                         .contentShape(Rectangle()) // 터치 영역 설정 - background의 padding 2포인트까지 터치 영역으로 포함
                     }
                     .buttonStyle(.plain)
-                    .accessibilityValue(isToday ? Text("PlanView.today") : Text("")) // 접근성 VoiceOver
+                    .accessibilityValue(isToday ? Text("PlanView.today") : Text(verbatim: "")) // 접근성 VoiceOver
                     .accessibilityAddTraits(isSelected ? .isSelected : []) // 접근성 VoiceOver
                     .containerRelativeFrame(.horizontal, count: 7, span: 1, spacing: 0) // 날짜 한 칸의 너비를 스크롤뷰의 1/7로 설정
                     .background {

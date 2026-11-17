@@ -6,7 +6,7 @@ import Observation
 final class PlanStore {
     private(set) var state: PlanState
 
-    private let calendar: Calendar
+    private var calendar: Calendar
 
     var visibleDates: [Date] {
         DateWindow.weekDates(around: state.windowAnchorDate, calendar: calendar)
@@ -28,7 +28,8 @@ final class PlanStore {
             select(date)
         case .selectToday:
             select(state.today)
-        case let .appBecameActive(now):
+        case let .appBecameActive(now, calendar):
+            self.calendar = calendar
             state.today = calendar.startOfDay(for: now)
         }
     }

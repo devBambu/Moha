@@ -77,11 +77,24 @@ final class PlanStoreTests: XCTestCase {
         let store = PlanStore(now: today, calendar: calendar)
         store.send(.selectDate(selectedDate))
 
-        store.send(.appBecameActive(now: nextDay))
+        store.send(.appBecameActive(now: nextDay, calendar: calendar))
 
         XCTAssertEqual(DateTestSupport.dayComponents(store.state.today, calendar: calendar), [2026, 8, 1])
         XCTAssertEqual(DateTestSupport.dayComponents(store.state.selectedDate, calendar: calendar), [2026, 7, 27])
         XCTAssertEqual(DateTestSupport.dayComponents(store.state.windowAnchorDate, calendar: calendar), [2026, 7, 31])
         XCTAssertFalse(store.isSelectedDateToday)
+    }
+
+    func testAppBecameActiveUsesUpdatedTimeZoneForTodayAndDateWindow() {
+        let initialCalendar = DateTestSupport.calendar(in: "UTC")
+        let currentCalendar = DateTestSupport.calendar(in: "Asia/Seoul")
+        let now = DateTestSupport.date(year: 2026, month: 11, day: 16, hour: 16, calendar: initialCalendar)
+        let store = PlanStore(now: now, calendar: initialCalendar)
+
+        store.send(.appBecameActive(now: now, calendar: currentCalendar))
+
+        XCTAssertEqual(DateTestSupport.dayComponents(store.state.today, calendar: currentCalendar), [2026, 11, 17])
+        XCTAssertEqual(store.visibleDates.count, 21)
+        XCTAssertTrue(store.visibleDates.contains { currentCalendar.isDate($0, inSameDayAs: store.state.today) })
     }
 }

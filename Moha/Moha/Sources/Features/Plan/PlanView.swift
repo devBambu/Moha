@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PlanView: View {
     @Environment(\.locale) private var locale
+    @Environment(\.calendar) private var calendar
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State var isCalendarPresented: Bool = false
@@ -164,7 +165,7 @@ struct PlanView: View {
         }
         .onChange(of: scenePhase) { _, phase in
             if phase == .active {
-                store.send(.appBecameActive(now: .now))
+                store.send(.appBecameActive(now: .now, calendar: calendar))
             }
         }
     }

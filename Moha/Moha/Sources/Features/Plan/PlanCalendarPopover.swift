@@ -47,5 +47,6 @@ struct PlanCalendarPopover: View {
             Button("PlanView.todayMove", action: onSelectToday)
         }
         .padding(.horizontal, 20) // VStack 전체 바깥에 좌우 20pt 여백을 줌
+        .padding(.bottom, 24)
     }
 }

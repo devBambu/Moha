@@ -10,8 +10,10 @@ import SwiftUI
 struct PlanView: View {
     @Environment(\.locale) private var locale
     @Environment(\.scenePhase) private var scenePhase
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State var isCalendarPresented: Bool = false
     @State private var store = PlanStore()
+    @State private var scrolledDate: Date?
     
     var body: some View {
         VStack(spacing: 0) {
@@ -145,9 +147,21 @@ struct PlanView: View {
             .scrollTargetLayout() // LazyHStack의 각 날짜 칸을 스크롤 정렬 대상으로 등록 - scrollTargetLayout()은 해당 레이아웃의 직접 자식 뷰들을 스크롤 대상으로 취급
         }
         .scrollIndicators(.hidden)
-        .defaultScrollAnchor(.center)
+        .scrollPosition(id: $scrolledDate, anchor: .center)
         .scrollTargetBehavior(.viewAligned) // 손을 떼어 스크롤이 멈출 때, scrollTargetLayout에서 등록한 날짜 칸 경계에 맞춰 멈춤. 기본 정렬은 앞쪽 가장자리를 기준으로 함.
         .padding(.horizontal, 16)
+        .onAppear {
+            scrolledDate = store.state.selectedDate
+        }
+        .onChange(of: store.state.selectedDate) { _, selectedDate in
+            if reduceMotion {
+                scrolledDate = selectedDate
+            } else {
+                withAnimation {
+                    scrolledDate = selectedDate
+                }
+            }
+        }
         .onChange(of: scenePhase) { _, phase in
             if phase == .active {
                 store.send(.appBecameActive(now: .now))

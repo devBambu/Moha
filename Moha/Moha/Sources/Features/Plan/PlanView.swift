@@ -5,6 +5,7 @@
 //  Created by 변예린 on 8/21/26.
 //
 
+import Combine
 import SwiftUI
 
 struct PlanView: View {
@@ -165,6 +166,11 @@ struct PlanView: View {
         }
         .onChange(of: scenePhase) { _, phase in
             if phase == .active {
+                store.send(.appBecameActive(now: .now, calendar: calendar))
+            }
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged).receive(on: DispatchQueue.main)) { _ in
+            if scenePhase == .active {
                 store.send(.appBecameActive(now: .now, calendar: calendar))
             }
         }

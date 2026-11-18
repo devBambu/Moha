@@ -70,6 +70,9 @@ final class DateWindowTests: XCTestCase {
         )
 
         XCTAssertEqual(dates.count, 21)
+        for date in dates {
+            XCTAssertEqual(date, calendar.startOfDay(for: date))
+        }
         for (current, next) in zip(dates, dates.dropFirst()) {
             XCTAssertEqual(calendar.dateComponents([.day], from: current, to: next).day, 1)
         }

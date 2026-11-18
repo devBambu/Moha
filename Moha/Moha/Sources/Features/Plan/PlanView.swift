@@ -170,6 +170,7 @@ struct PlanView: View {
             }
         }
         .onReceive(NotificationCenter.default.publisher(for: .NSCalendarDayChanged).receive(on: DispatchQueue.main)) { _ in
+            // 날짜가 바뀌면 시스템이 알림 게시 -> NotificationCenter가 알림 전달 (publisher가 메인큐에 배포) -> onReceive에서 구독하다가 이벤트 발생 시 처리 (메인큐에서)
             if scenePhase == .active {
                 store.send(.appBecameActive(now: .now, calendar: calendar))
             }

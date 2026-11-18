@@ -39,8 +39,8 @@ extension NavigationRouter {
 }
 
 @Observable
-final class HomeRouter: NavigationRouter {
-    typealias Destination = HomeRoute
+final class PlanRouter: NavigationRouter {
+    typealias Destination = PlanRoute
     
     var path = NavigationPath()
 }

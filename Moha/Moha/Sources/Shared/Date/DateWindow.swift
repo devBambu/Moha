@@ -1,0 +1,25 @@
+import Foundation
+
+enum DateWindow {
+    static func weekDates(
+        around date: Date, // 기준 날짜
+        weeksBefore: Int = 1,
+        weeksAfter: Int = 1,
+        calendar: Calendar
+    ) -> [Date] {
+        precondition(weeksBefore >= 0 && weeksAfter >= 0) // 조건이 틀릴 경우 실행 중단
+        
+        var calendar = calendar
+        calendar.firstWeekday = 2
+
+        let currentWeekMonday = calendar.dateInterval(of: .weekOfYear, for: date)!.start
+        let firstDate = calendar.startOfDay(
+            for: calendar.date(byAdding: .weekOfYear, value: -weeksBefore, to: currentWeekMonday)!
+        )
+        let weekCount = weeksBefore + weeksAfter + 1
+
+        return (0..<(weekCount * 7)).map { offset in
+            calendar.date(byAdding: .day, value: offset, to: firstDate)!
+        }
+    }
+}

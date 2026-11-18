@@ -10,9 +10,9 @@ import Combine
 
 @Observable
 final class MainRouter: ObservableObject {
-    var selectedTab = TabItem.home
+    var selectedTab = TabItem.plan
     
-    let homeRouter = HomeRouter()
+    let planRouter = PlanRouter()
     let reportRouter = ReportRouter()
     let settingsRouter = SettingsRouter()
     

@@ -5,6 +5,6 @@
 //  Created by 변예린 on 8/20/26.
 //
 
-enum HomeRoute: Route {
+enum PlanRoute: Route {
     case createTodo
 }

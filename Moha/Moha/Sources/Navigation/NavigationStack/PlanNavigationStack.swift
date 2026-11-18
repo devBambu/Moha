@@ -7,20 +7,20 @@
 
 import SwiftUI
 
-struct HomeNavigationStack: View {
-    @Bindable var router: HomeRouter
+struct PlanNavigationStack: View {
+    @Bindable var router: PlanRouter
     
     var body: some View {
         NavigationStack(path: $router.path) {
-            Text("Home") //TODO: HomeView로 수정 필요
-                .navigationDestination(for: HomeRoute.self) { route in
+            PlanView(isCalendarPresented: false)
+                .navigationDestination(for: PlanRoute.self) { route in
                     destinationView(for: route)
                 }
         }
     }
     
     @ViewBuilder
-    private func destinationView(for route: HomeRoute) -> some View {
+    private func destinationView(for route: PlanRoute) -> some View {
         switch route {
         case .createTodo:
             Text("Create")

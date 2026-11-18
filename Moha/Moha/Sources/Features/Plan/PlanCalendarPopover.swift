@@ -20,9 +20,6 @@ struct PlanCalendarPopover: View {
 
                     return !calendar.isDate(date, inSameDayAs: selectedDate)
                 }) else {
-                    if dates.isEmpty {
-                        onSelect(selectedDate)
-                    }
                     return
                 }
 
